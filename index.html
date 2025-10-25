@@ -107,6 +107,32 @@
     </div>
   </main>
 
+    <!-- ================= Chatbot Widget ================= -->
+<!-- Botón flotante -->
+<button class="chatbot-fab btn btn-brand" type="button"
+        data-bs-toggle="offcanvas" data-bs-target="#chatbotOffcanvas"
+        aria-controls="chatbotOffcanvas" aria-label="Abrir asistente">
+  <i class="bi bi-chat-dots-fill fs-5"></i>
+</button>
+
+<!-- Panel lateral con el chatbot embebido -->
+<div class="offcanvas offcanvas-end chatbot-canvas" tabindex="-1" id="chatbotOffcanvas" aria-labelledby="chatbotOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="chatbotOffcanvasLabel">Asistente</h5>
+    <div class="d-flex gap-2 align-items-center">
+      <a id="chatbotOpenNew" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener">
+        Abrir en nueva pestaña
+      </a>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+  </div>
+  <div class="offcanvas-body p-0">
+    <!-- El src se coloca por JS (carga perezosa) -->
+    <iframe id="chatbotFrame" class="chatbot-frame" title="Chatbot"></iframe>
+  </div>
+</div>
+<!-- =============== /Chatbot Widget ================== -->
+ 
   <!-- Footer -->
   <footer class="bg-dark text-white py-4 mt-5">
     <div class="container-xxl text-center small">
