@@ -1,0 +1,122 @@
+/* ====== Variables de tema ====== */
+:root{
+  --brand: #4f46e5;      /* Indigo 600 */
+  --brand-700:#4338ca;   /* Indigo 700 */
+  --brand-100:#eef2ff;
+  --accent:#22c55e;      /* Emerald 500 */
+  --text:#0f172a;        /* Slate 900 */
+  --muted:#475569;       /* Slate 600 */
+  --border:#e5e7eb;      /* Gray 200 */
+  --card:#ffffff;
+  --bg:#f8fafc;
+  --shadow: 0 6px 18px rgba(2, 6, 23, .08);
+  --shadow-sm: 0 3px 10px rgba(2, 6, 23, .06);
+}
+
+/* ====== Base ====== */
+html{scroll-behavior:smooth;}
+body{
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;           /* más contenido por pantalla */
+  color: var(--text);
+  background: var(--bg);
+}
+
+.navbar-brand{font-size:1.05rem;}
+.nav-link{color:#0f172a; opacity:.85;}
+.nav-link:hover, .nav-link.active{opacity:1; color:var(--brand);}
+.text-brand{color:var(--brand);}
+
+/* ====== Hero ====== */
+.hero{
+  background-image: linear-gradient(rgba(10, 14, 25, 0.58), rgba(10,14,25,0.66)), url('../assets/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color:#fff;
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  /* capa extra si quisieras oscurecer aún más: */
+  /* background: rgba(8,12,20,.2); */
+}
+.hero-title{font-size: clamp(1.6rem, 2.2vw, 2.1rem); font-weight:600;}
+.hero-subtitle{font-size: clamp(.95rem, 1.2vw, 1.05rem); color:#e2e8f0;}
+
+/* ====== Secciones / Títulos ====== */
+.section-title, .page-title{font-size:1.25rem; font-weight:600;}
+
+/* ====== Cards de producto ====== */
+.product-card{
+  border:1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .18s ease, box-shadow .18s ease;
+  background: var(--card);
+}
+.product-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+.product-title{ font-size: .95rem; font-weight:600; margin-bottom:.25rem; }
+.product-price{ font-size: .95rem; color: var(--accent); font-weight:600; }
+
+.card-img-top{
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* ====== Botones ====== */
+.btn-brand{
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand-700);
+  --bs-btn-hover-border-color: var(--brand-700);
+  --bs-btn-focus-shadow-rgb: 79,70,229;
+}
+.btn-outline-brand{
+  --bs-btn-color: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand);
+  --bs-btn-hover-border-color: var(--brand);
+  --bs-btn-hover-color: #fff;
+}
+
+/* ====== Footer ====== */
+footer{ font-size: .9rem; }
+
+/* ====== Tabla de carrito ====== */
+table thead th{ font-weight:600; }
+table td, table th{ font-size:.92rem; }
+
+/* ====== Helpers ====== */
+.link-brand{ color: var(--brand); text-decoration: none; }
+.link-brand:hover{ color: var(--brand-700); text-decoration: underline; }
+
+/* ====== Responsive tweaks ====== */
+@media (min-width: 992px){
+  .navbar .nav-link{ padding: .45rem .7rem; }
+}
+
+/* === Chatbot widget === */
+.chatbot-fab{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1080;              /* por encima de offcanvas/backdrops */
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+.offcanvas.chatbot-canvas{ width: 420px; }
+@media (max-width: 991.98px){
+  .offcanvas.chatbot-canvas{ width: 100%; } /* móvil: full width */
+}
+.chatbot-frame{
+  width: 100%;
+  height: calc(100vh - 56px); /* 56px ≈ alto del header del offcanvas */
+  border: 0;
+}
